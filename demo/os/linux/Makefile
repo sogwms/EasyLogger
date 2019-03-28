@@ -17,8 +17,8 @@ all:$(OBJ)
 	$(CC) out/*.o -o $(target) $(LIB)
 	mv $(target) out
 	rm out/main.o
-	$(AR) rcs easylogger.a out/*.o
-	$(AR) t easylogger.a
+	$(AR) rcs libeasylogger.a out/*.o
+	$(AR) t libeasylogger.a
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 	@echo $(CC) $<
