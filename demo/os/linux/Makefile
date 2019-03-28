@@ -16,8 +16,12 @@ target = EasyLoggerLinuxDemo
 all:$(OBJ)
 	$(CC) out/*.o -o $(target) $(LIB)
 	mv $(target) out
+	rm out/main.o
+	$(AR) rcs easylogger.a out/*.o
+	$(AR) t easylogger.a
 %.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
-	mv $@ out
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+	@echo $(CC) $<
+	@mv $@ out
 clean:
-	rm -rf out/*
+	rm -rf out/* *.a
